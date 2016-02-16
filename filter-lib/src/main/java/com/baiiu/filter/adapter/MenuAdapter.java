@@ -1,4 +1,4 @@
-package com.baiiu.filter.filter.adapter;
+package com.baiiu.filter.adapter;
 
 import android.view.View;
 import android.widget.FrameLayout;

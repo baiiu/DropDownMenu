@@ -1,4 +1,4 @@
-package com.baiiu.filter.filter.typeview;
+package com.baiiu.filter.typeview;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,9 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.baiiu.filter.R;
-import com.baiiu.filter.filter.adapter.BaseBaseAdapter;
-import com.baiiu.filter.filter.adapter.SubMenuAdapter;
-import com.baiiu.filter.filter.util.CommonUtil;
+import com.baiiu.filter.adapter.BaseBaseAdapter;
+import com.baiiu.filter.adapter.SubMenuAdapter;
+import com.baiiu.filter.util.CommonUtil;
 
 import java.util.List;
 

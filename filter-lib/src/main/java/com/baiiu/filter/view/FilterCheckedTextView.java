@@ -1,4 +1,4 @@
-package com.baiiu.filter.filter.view;
+package com.baiiu.filter.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

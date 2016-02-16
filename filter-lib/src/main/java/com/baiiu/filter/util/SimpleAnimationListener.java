@@ -1,4 +1,4 @@
-package com.baiiu.filter.filter.util;
+package com.baiiu.filter.util;
 
 import android.view.animation.Animation;
 

@@ -1,4 +1,4 @@
-package com.baiiu.filter.filter.view;
+package com.baiiu.filter.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -15,8 +15,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baiiu.filter.R;
-import com.baiiu.filter.filter.adapter.MenuAdapter;
-import com.baiiu.filter.filter.util.UIUtil;
+import com.baiiu.filter.adapter.MenuAdapter;
+import com.baiiu.filter.util.UIUtil;
 
 import java.util.Arrays;
 import java.util.List;

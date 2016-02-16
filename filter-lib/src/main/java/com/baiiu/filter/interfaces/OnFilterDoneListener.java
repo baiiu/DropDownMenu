@@ -1,4 +1,4 @@
-package com.baiiu.filter.filter.interfaces;
+package com.baiiu.filter.interfaces;
 
 /**
  * author: baiiu

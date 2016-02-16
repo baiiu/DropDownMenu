@@ -1,4 +1,4 @@
-package com.baiiu.filter.filter.adapter;
+package com.baiiu.filter.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.baiiu.filter.R;
-import com.baiiu.filter.filter.util.UIUtil;
-import com.baiiu.filter.filter.view.FilterCheckedTextView;
+import com.baiiu.filter.util.UIUtil;
+import com.baiiu.filter.view.FilterCheckedTextView;
 
 import java.util.List;
 

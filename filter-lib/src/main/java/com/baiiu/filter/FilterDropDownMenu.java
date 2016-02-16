@@ -1,4 +1,4 @@
-package com.baiiu.filter.filter;
+package com.baiiu.filter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,11 +10,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
-import com.baiiu.filter.R;
-import com.baiiu.filter.filter.adapter.MenuAdapter;
-import com.baiiu.filter.filter.util.SimpleAnimationListener;
-import com.baiiu.filter.filter.util.UIUtil;
-import com.baiiu.filter.filter.view.FixedTabIndicator;
+import com.baiiu.filter.adapter.MenuAdapter;
+import com.baiiu.filter.util.SimpleAnimationListener;
+import com.baiiu.filter.util.UIUtil;
+import com.baiiu.filter.view.FixedTabIndicator;
 
 
 /**

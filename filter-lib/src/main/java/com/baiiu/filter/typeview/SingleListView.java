@@ -1,4 +1,4 @@
-package com.baiiu.filter.filter.typeview;
+package com.baiiu.filter.typeview;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.baiiu.filter.filter.adapter.BaseBaseAdapter;
-import com.baiiu.filter.filter.interfaces.OnFilterItemClickListener;
+import com.baiiu.filter.adapter.BaseBaseAdapter;
+import com.baiiu.filter.interfaces.OnFilterItemClickListener;
 
 import java.util.List;
 

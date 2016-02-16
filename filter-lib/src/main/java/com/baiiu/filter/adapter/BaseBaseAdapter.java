@@ -1,4 +1,4 @@
-package com.baiiu.filter.filter.adapter;
+package com.baiiu.filter.adapter;
 
 import android.content.Context;
 import android.view.View;
