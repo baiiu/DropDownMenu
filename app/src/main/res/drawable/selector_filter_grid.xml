@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/rect_blue_stroke" android:state_enabled="true" android:state_pressed="true" />
+    <item android:drawable="@drawable/rect_blue_stroke" android:state_checked="true" android:state_enabled="true" />
+    <item android:drawable="@drawable/rect_blue_stroke" android:state_enabled="true" android:state_selected="true" />
+    <item android:drawable="@drawable/news_article_icon_gray_line_4" android:state_enabled="false" />
+    <item android:drawable="@drawable/rect_grey_stroke" />
+</selector>
