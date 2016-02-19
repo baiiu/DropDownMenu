@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.android36kr.app.ui.widget.filter.view.FilterCheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.baiiu.filter.view.FilterCheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tv_item_filter"
     android:layout_width="match_parent"

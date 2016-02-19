@@ -10,12 +10,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 
-import com.baiiu.filter.filter.adapter.SubMenuAdapter;
-import com.baiiu.filter.filter.interfaces.OnFilterDoneListener;
-import com.baiiu.filter.filter.util.CommonUtil;
-import com.baiiu.filter.filter.util.UIUtil;
-import com.baiiu.filter.filter.view.FilterCheckedTextView;
-import com.baiiu.filterdropdownmenu.entity.FilterType;
+import com.baiiu.filter.adapter.SubMenuAdapter;
+import com.baiiu.filter.interfaces.OnFilterDoneListener;
+import com.baiiu.filter.util.CommonUtil;
+import com.baiiu.filter.util.UIUtil;
+import com.baiiu.filter.view.FilterCheckedTextView;
 import com.baiiu.filterdropdownmenu.entity.FilterUrl;
 
 import java.util.List;
@@ -41,8 +40,10 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
     @Bind(R.id.bt_confirm)
     Button bt_confirm;
 
-    private SubMenuAdapter<FilterType> mTopAdapter;
-    private SubMenuAdapter<FilterType> mBottomAdapter;
+    private SubMenuAdapter<String> mTopAdapter;
+    private SubMenuAdapter<String> mBottomAdapter;
+
+    private OnFilterDoneListener onFilterDoneListener;
 
 
     public DoubleGridView(Context context) {
@@ -74,10 +75,10 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
 
     private void initAdapter(Context context) {
 
-        mTopAdapter = new SubMenuAdapter<FilterType>(null, context) {
+        mTopAdapter = new SubMenuAdapter<String>(null, context) {
             @Override
-            public String provideText(FilterType phase) {
-                return phase.desc;
+            public String provideText(String phase) {
+                return phase;
             }
 
             @Override
@@ -89,10 +90,10 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
         };
 
 
-        mBottomAdapter = new SubMenuAdapter<FilterType>(null, context) {
+        mBottomAdapter = new SubMenuAdapter<String>(null, context) {
             @Override
-            public String provideText(FilterType area) {
-                return area.desc;
+            public String provideText(String area) {
+                return area;
             }
 
             @Override
@@ -111,7 +112,7 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
         });
     }
 
-    public void setTopGridData(List<FilterType> list) {
+    public void setTopGridData(List<String> list) {
         if (CommonUtil.isEmpty(list)) {
             return;
         }
@@ -120,7 +121,7 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
     }
 
 
-    public void setBottomGridList(List<FilterType> list) {
+    public void setBottomGridList(List<String> list) {
         if (CommonUtil.isEmpty(list)) {
             return;
         }
@@ -139,11 +140,11 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
                 int bottomPosition = mBottomGrid.getCheckedItemPosition();
                 bottomPosition = bottomPosition == -1 ? 0 : bottomPosition;
 
-                FilterType financePhase = mTopAdapter.getItem(topPosition);
-                FilterType area = mBottomAdapter.getItem(bottomPosition);
+                String financePhase = mTopAdapter.getItem(topPosition);
+                String area = mBottomAdapter.getItem(bottomPosition);
 
-                FilterUrl.get().gridTop = financePhase.value;
-                FilterUrl.get().gridBottom = area.value;
+                FilterUrl.instance().gridTop = financePhase;
+                FilterUrl.instance().gridBottom = area;
 
                 if (onFilterDoneListener != null) {
                     onFilterDoneListener.onFilterDone(0, "", "");
@@ -153,7 +154,6 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
         }
     }
 
-    private OnFilterDoneListener onFilterDoneListener;
 
     public void setOnFilterDoneListener(OnFilterDoneListener listener) {
         onFilterDoneListener = listener;

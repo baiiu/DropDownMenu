@@ -6,12 +6,12 @@ import android.text.TextUtils;
  * 描述：
  */
 public class FilterUrl {
-    private static FilterUrl filterUrl;
+    private volatile static FilterUrl filterUrl;
 
     private FilterUrl() {
     }
 
-    public static FilterUrl get() {
+    public static FilterUrl instance() {
         if (filterUrl == null) {
             synchronized (FilterUrl.class) {
                 if (filterUrl == null) {
@@ -22,11 +22,10 @@ public class FilterUrl {
         return filterUrl;
     }
 
-    public String position0Left;
-    public String position0Right;
-    public String position1;
-    public String position2Left;
-    public String position2Right;
+    public String position0;
+    public String position1Left;
+    public String position1Right;
+    public String positionGrid;
     public String gridTop;
     public String gridBottom;
 
@@ -37,44 +36,39 @@ public class FilterUrl {
     public String toString() {
         StringBuilder buffer = new StringBuilder();
 
-        if (!TextUtils.isEmpty(position0Left)) {
-            buffer.append("&position0Left=");
-            buffer.append(position0Left);
+        if (!TextUtils.isEmpty(position0)) {
+            buffer.append("position0Left=");
+            buffer.append(position);
             buffer.append("\n");
         }
 
-        if (!TextUtils.isEmpty(position0Right)) {
-            buffer.append("&position0Right=");
-            buffer.append(position0Right);
+
+        if (!TextUtils.isEmpty(position1Left)) {
+            buffer.append("position1=");
+            buffer.append(position1Left);
             buffer.append("\n");
         }
 
-        if (!TextUtils.isEmpty(position1)) {
-            buffer.append("&position1=");
-            buffer.append(position1);
+        if (!TextUtils.isEmpty(position1Right)) {
+            buffer.append("position2=");
+            buffer.append(position1Right);
             buffer.append("\n");
         }
 
-        if (!TextUtils.isEmpty(position2Left)) {
-            buffer.append("&position2Left=");
-            buffer.append(position2Left);
-            buffer.append("\n");
-        }
-
-        if (!TextUtils.isEmpty(position2Right)) {
-            buffer.append("&position2Right=");
-            buffer.append(position2Right);
+        if (!TextUtils.isEmpty(positionGrid)) {
+            buffer.append("position2=");
+            buffer.append(positionGrid);
             buffer.append("\n");
         }
 
         if (!TextUtils.isEmpty(gridTop)) {
-            buffer.append("&gridTop=");
+            buffer.append("gridTop=");
             buffer.append(gridTop);
             buffer.append("\n");
         }
 
         if (!TextUtils.isEmpty(gridBottom)) {
-            buffer.append("&gridBottom=");
+            buffer.append("gridBottom=");
             buffer.append(gridBottom);
             buffer.append("\n");
         }

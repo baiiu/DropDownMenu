@@ -12,6 +12,8 @@ import android.widget.ListView;
 import com.baiiu.filter.adapter.BaseBaseAdapter;
 import com.baiiu.filter.interfaces.OnFilterItemClickListener;
 
+import java.util.List;
+
 /**
  * author: baiiu
  * date: on 16/2/16 15:46
@@ -39,6 +41,7 @@ public class SingleGridView<DATA> extends GridView implements AdapterView.OnItem
     private void init(Context context) {
         setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         setSelector(new ColorDrawable(Color.TRANSPARENT));
+        setNumColumns(3);
 
         setOnItemClickListener(this);
     }
@@ -52,6 +55,15 @@ public class SingleGridView<DATA> extends GridView implements AdapterView.OnItem
     public SingleGridView<DATA> onItemClick(OnFilterItemClickListener<DATA> onItemClickListener) {
         this.mOnItemClickListener = onItemClickListener;
         return this;
+    }
+
+
+    public void setList(List<DATA> list, int checkedPositoin) {
+        mAdapter.setList(list);
+
+        if (checkedPositoin != -1) {
+            setItemChecked(checkedPositoin, true);
+        }
     }
 
     @Override
