@@ -76,7 +76,7 @@ public class DoubleListView<LEFTD, RIGHTD> extends LinearLayout implements Adapt
 
     public void setRightList(List<RIGHTD> list, int checkedPosition) {
         mRightAdapter.setList(list);
-        if(checkedPosition != -1){
+        if (checkedPosition != -1) {
             lv_right.setItemChecked(checkedPosition, true);
         }
     }
@@ -103,6 +103,13 @@ public class DoubleListView<LEFTD, RIGHTD> extends LinearLayout implements Adapt
         return this;
     }
 
+    public ListView getLeftListView() {
+        return lv_left;
+    }
+
+    public ListView getRightListView() {
+        return lv_right;
+    }
 
     //========================点击事件===================================
     private int mRightLastChecked;

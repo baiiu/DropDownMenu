@@ -2,6 +2,7 @@ package com.baiiu.filterdropdownmenu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -20,12 +21,14 @@ public class MainActivity extends AppCompatActivity implements OnFilterDoneListe
 
     TextView textView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        Toolbar toolbar = ButterKnife.findById(this, R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
         View contentView = LayoutInflater.from(this).inflate(R.layout.include_refreshlist, null);
@@ -37,14 +40,16 @@ public class MainActivity extends AppCompatActivity implements OnFilterDoneListe
 
 
     private void initFilterDropDownView() {
-
         String[] titleList = new String[]{"第一个", "第二个", "第三个", "第四个"};
         filterDropMenu.setMenuAdapter(new FilterMenuAdapter(this, titleList, this));
     }
 
     @Override
     public void onFilterDone(int position, String positionTitle, String urlValue) {
-        filterDropMenu.setPositionIndicatorText(FilterUrl.instance().position, FilterUrl.instance().positionTitle);
+        if (position != 3) {
+            filterDropMenu.setPositionIndicatorText(FilterUrl.instance().position, FilterUrl.instance().positionTitle);
+        }
+
         filterDropMenu.close();
 
         textView.setText(FilterUrl.instance().toString());

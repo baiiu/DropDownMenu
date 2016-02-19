@@ -100,7 +100,7 @@ public class FilterMenuAdapter implements MenuAdapter {
                 .onItemClick(new OnFilterItemClickListener<String>() {
                     @Override
                     public void onItemClick(String item) {
-                        FilterUrl.instance().position0 = item;
+                        FilterUrl.instance().singleListPosition = item;
 
                         FilterUrl.instance().position = 0;
                         FilterUrl.instance().positionTitle = item;
@@ -111,7 +111,7 @@ public class FilterMenuAdapter implements MenuAdapter {
 
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 10; ++i) {
-            list.add("1" + i);
+            list.add("" + i);
         }
         singleListView.setList(list, 0);
 
@@ -149,10 +149,10 @@ public class FilterMenuAdapter implements MenuAdapter {
                     public List<String> provideRightList(FilterType item, int position) {
                         List<String> child = item.child;
                         if (CommonUtil.isEmpty(child)) {
-                            FilterUrl.instance().position1Left = item.desc;
-                            FilterUrl.instance().position1Right = "";
+                            FilterUrl.instance().doubleListLeft = item.desc;
+                            FilterUrl.instance().doubleListRight = "";
 
-                            FilterUrl.instance().position = 0;
+                            FilterUrl.instance().position = 1;
                             FilterUrl.instance().positionTitle = item.desc;
 
                             onFilterDone();
@@ -164,10 +164,10 @@ public class FilterMenuAdapter implements MenuAdapter {
                 .onRightItemClickListener(new DoubleListView.OnRightItemClickListener<FilterType, String>() {
                     @Override
                     public void onRightItemClick(FilterType item, String string) {
-                        FilterUrl.instance().position1Left = item.desc;
-                        FilterUrl.instance().position1Right = string;
+                        FilterUrl.instance().doubleListLeft = item.desc;
+                        FilterUrl.instance().doubleListRight = string;
 
-                        FilterUrl.instance().position = 0;
+                        FilterUrl.instance().position = 1;
                         FilterUrl.instance().positionTitle = string;
 
                         onFilterDone();
@@ -178,21 +178,34 @@ public class FilterMenuAdapter implements MenuAdapter {
         List<FilterType> list = new ArrayList<>();
 
         FilterType filterType = new FilterType();
-        filterType.desc = "00";
+        filterType.desc = "10";
         List<String> childList = new ArrayList<>();
-        for (int i = 0; i < 5; ++i) {
-            childList.add("00" + i);
+        for (int i = 0; i < 10; ++i) {
+            childList.add("10" + i);
         }
         filterType.child = childList;
         list.add(filterType);
 
 
         filterType = new FilterType();
-        filterType.desc = "01";
+        filterType.desc = "11";
+        list.add(filterType);
+
+        filterType = new FilterType();
+        filterType.desc = "12";
+        childList = new ArrayList<>();
+        for (int i = 0; i < 3; ++i) {
+            childList.add("12" + i);
+        }
+        filterType.child = childList;
         list.add(filterType);
 
 
+
+        //初始化选中
         comTypeDoubleListView.setLeftList(list, 0);
+        comTypeDoubleListView.setRightList(list.get(0).child, -1);
+        comTypeDoubleListView.getLeftListView().setBackgroundColor(mContext.getResources().getColor(R.color.b_c_fafafa));
 
         return comTypeDoubleListView;
     }
@@ -214,7 +227,7 @@ public class FilterMenuAdapter implements MenuAdapter {
                 .onItemClick(new OnFilterItemClickListener<String>() {
                     @Override
                     public void onItemClick(String item) {
-                        FilterUrl.instance().positionGrid = item;
+                        FilterUrl.instance().singleGridPosition = item;
 
                         FilterUrl.instance().position = 2;
                         FilterUrl.instance().positionTitle = item;

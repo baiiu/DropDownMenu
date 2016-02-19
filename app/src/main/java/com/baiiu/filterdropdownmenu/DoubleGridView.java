@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ScrollView;
 
 import com.baiiu.filter.adapter.SubMenuAdapter;
@@ -30,9 +29,6 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
 
     @Bind(R.id.grid_top)
     GridViewInScrollView mTopGrid;
-
-    @Bind(R.id.iv_expand)
-    ImageView iv_expand;
 
     @Bind(R.id.grid_bottom)
     GridViewInScrollView mBottomGrid;
@@ -61,7 +57,6 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
 
         ButterKnife.bind(this, view);
 
-        iv_expand.setOnClickListener(this);
         bt_confirm.setOnClickListener(this);
 
         initAdapter(context);
@@ -132,26 +127,22 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.bt_confirm:
-                int topPosition = mTopGrid.getCheckedItemPosition();
-                topPosition = topPosition == -1 ? 0 : topPosition;
+        int topPosition = mTopGrid.getCheckedItemPosition();
+        topPosition = topPosition == -1 ? 0 : topPosition;
 
-                int bottomPosition = mBottomGrid.getCheckedItemPosition();
-                bottomPosition = bottomPosition == -1 ? 0 : bottomPosition;
+        int bottomPosition = mBottomGrid.getCheckedItemPosition();
+        bottomPosition = bottomPosition == -1 ? 0 : bottomPosition;
 
-                String financePhase = mTopAdapter.getItem(topPosition);
-                String area = mBottomAdapter.getItem(bottomPosition);
+        String financePhase = mTopAdapter.getItem(topPosition);
+        String area = mBottomAdapter.getItem(bottomPosition);
 
-                FilterUrl.instance().gridTop = financePhase;
-                FilterUrl.instance().gridBottom = area;
+        FilterUrl.instance().doubleGridTop = financePhase;
+        FilterUrl.instance().doubleGridBottom = area;
 
-                if (onFilterDoneListener != null) {
-                    onFilterDoneListener.onFilterDone(0, "", "");
-                }
-
-                break;
+        if (onFilterDoneListener != null) {
+            onFilterDoneListener.onFilterDone(3, "", "");
         }
+
     }
 
 

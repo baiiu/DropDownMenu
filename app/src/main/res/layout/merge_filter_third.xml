@@ -9,6 +9,7 @@
         android:orientation="vertical"
         android:paddingBottom="25dp"
         android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         android:paddingTop="13dp">
 
 
@@ -16,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="34dp"
             android:gravity="center_vertical"
-            android:text="融资阶段"
+            android:text="TOP"
             android:textSize="15sp" />
 
 
@@ -30,33 +31,17 @@
             android:listSelector="@android:color/transparent"
             android:numColumns="4"
             android:paddingBottom="15dp"
-            android:paddingEnd="15dp"
-            android:paddingRight="15dp"
             android:scrollbars="none"
             android:verticalSpacing="15dp" />
 
 
-        <FrameLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="34dp"
             android:layout_marginTop="13dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="所在地"
-                android:textSize="15sp" />
-
-            <ImageView
-                android:id="@+id/iv_expand"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center|right"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp" />
-        </FrameLayout>
+            android:gravity="center_vertical"
+            android:text="BOTTOM"
+            android:textSize="15sp" />
 
 
         <com.baiiu.filterdropdownmenu.GridViewInScrollView
@@ -69,7 +54,6 @@
             android:listSelector="@android:color/transparent"
             android:numColumns="4"
             android:paddingBottom="15dp"
-            android:paddingRight="15dp"
             android:scrollbars="none"
             android:verticalSpacing="15dp" />
 

@@ -22,12 +22,12 @@ public class FilterUrl {
         return filterUrl;
     }
 
-    public String position0;
-    public String position1Left;
-    public String position1Right;
-    public String positionGrid;
-    public String gridTop;
-    public String gridBottom;
+    public String singleListPosition;
+    public String doubleListLeft;
+    public String doubleListRight;
+    public String singleGridPosition;
+    public String doubleGridTop;
+    public String doubleGridBottom;
 
     public int position;
     public String positionTitle;
@@ -36,40 +36,40 @@ public class FilterUrl {
     public String toString() {
         StringBuilder buffer = new StringBuilder();
 
-        if (!TextUtils.isEmpty(position0)) {
-            buffer.append("position0Left=");
-            buffer.append(position);
+        if (!TextUtils.isEmpty(singleListPosition)) {
+            buffer.append("singleListPosition=");
+            buffer.append(singleListPosition);
             buffer.append("\n");
         }
 
 
-        if (!TextUtils.isEmpty(position1Left)) {
-            buffer.append("position1=");
-            buffer.append(position1Left);
+        if (!TextUtils.isEmpty(doubleListLeft)) {
+            buffer.append("doubleListLeft=");
+            buffer.append(doubleListLeft);
             buffer.append("\n");
         }
 
-        if (!TextUtils.isEmpty(position1Right)) {
-            buffer.append("position2=");
-            buffer.append(position1Right);
+        if (!TextUtils.isEmpty(doubleListRight)) {
+            buffer.append("doubleListRight=");
+            buffer.append(doubleListRight);
             buffer.append("\n");
         }
 
-        if (!TextUtils.isEmpty(positionGrid)) {
-            buffer.append("position2=");
-            buffer.append(positionGrid);
+        if (!TextUtils.isEmpty(singleGridPosition)) {
+            buffer.append("singleGridPosition=");
+            buffer.append(singleGridPosition);
             buffer.append("\n");
         }
 
-        if (!TextUtils.isEmpty(gridTop)) {
-            buffer.append("gridTop=");
-            buffer.append(gridTop);
+        if (!TextUtils.isEmpty(doubleGridTop)) {
+            buffer.append("doubleGridTop=");
+            buffer.append(doubleGridTop);
             buffer.append("\n");
         }
 
-        if (!TextUtils.isEmpty(gridBottom)) {
-            buffer.append("gridBottom=");
-            buffer.append(gridBottom);
+        if (!TextUtils.isEmpty(doubleGridBottom)) {
+            buffer.append("doubleGridBottom=");
+            buffer.append(doubleGridBottom);
             buffer.append("\n");
         }
 
