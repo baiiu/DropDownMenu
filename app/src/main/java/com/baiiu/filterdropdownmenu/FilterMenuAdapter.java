@@ -200,8 +200,6 @@ public class FilterMenuAdapter implements MenuAdapter {
         filterType.child = childList;
         list.add(filterType);
 
-
-
         //初始化选中
         comTypeDoubleListView.setLeftList(list, 0);
         comTypeDoubleListView.setRightList(list.get(0).child, -1);
@@ -221,7 +219,9 @@ public class FilterMenuAdapter implements MenuAdapter {
 
                     @Override
                     protected void initCheckedTextView(FilterCheckedTextView checkedTextView) {
+                        checkedTextView.setPadding(0, UIUtil.dp(context, 3), 0, UIUtil.dp(context, 3));
                         checkedTextView.setGravity(Gravity.CENTER);
+                        checkedTextView.setBackgroundResource(R.drawable.selector_filter_grid);
                     }
                 })
                 .onItemClick(new OnFilterItemClickListener<String>() {

@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.baiiu.filter.adapter.BaseBaseAdapter;
 import com.baiiu.filter.interfaces.OnFilterItemClickListener;
+import com.baiiu.filter.util.UIUtil;
 
 import java.util.List;
 
@@ -42,6 +43,15 @@ public class SingleGridView<DATA> extends GridView implements AdapterView.OnItem
         setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         setSelector(new ColorDrawable(Color.TRANSPARENT));
         setNumColumns(3);
+        setBackgroundColor(Color.WHITE);
+        setSmoothScrollbarEnabled(false);
+
+
+        int dp = UIUtil.dp(context, 15);
+
+        setVerticalSpacing(dp);
+        setHorizontalSpacing(dp);
+        setPadding(dp, dp, dp, dp);
 
         setOnItemClickListener(this);
     }
