@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.baiiu.filter.adapter.MenuAdapter;
-import com.baiiu.filter.adapter.SubMenuAdapter;
+import com.baiiu.filter.adapter.SimpleTextAdapter;
 import com.baiiu.filter.interfaces.OnFilterDoneListener;
 import com.baiiu.filter.interfaces.OnFilterItemClickListener;
 import com.baiiu.filter.typeview.DoubleListView;
@@ -27,12 +27,12 @@ import java.util.List;
  * date: on 16/1/17 21:14
  * description:
  */
-public class FilterMenuAdapter implements MenuAdapter {
+public class DropMenuAdapter implements MenuAdapter {
     private final Context mContext;
     private OnFilterDoneListener onFilterDoneListener;
     private String[] titles;
 
-    public FilterMenuAdapter(Context context, String[] titles, OnFilterDoneListener onFilterDoneListener) {
+    public DropMenuAdapter(Context context, String[] titles, OnFilterDoneListener onFilterDoneListener) {
         this.mContext = context;
         this.titles = titles;
         this.onFilterDoneListener = onFilterDoneListener;
@@ -82,7 +82,7 @@ public class FilterMenuAdapter implements MenuAdapter {
 
     private View createSingleListView() {
         SingleListView<String> singleListView = new SingleListView<String>(mContext)
-                .adapter(new SubMenuAdapter<String>(null, mContext) {
+                .adapter(new SimpleTextAdapter<String>(null, mContext) {
                     @Override
                     public String provideText(String string) {
                         return string;
@@ -118,7 +118,7 @@ public class FilterMenuAdapter implements MenuAdapter {
 
     private View createDoubleListView() {
         DoubleListView<FilterType, String> comTypeDoubleListView = new DoubleListView<FilterType, String>(mContext)
-                .leftAdapter(new SubMenuAdapter<FilterType>(null, mContext) {
+                .leftAdapter(new SimpleTextAdapter<FilterType>(null, mContext) {
                     @Override
                     public String provideText(FilterType filterType) {
                         return filterType.desc;
@@ -129,7 +129,7 @@ public class FilterMenuAdapter implements MenuAdapter {
                         checkedTextView.setPadding(UIUtil.dp(mContext, 44), UIUtil.dp(mContext, 15), 0, UIUtil.dp(mContext, 15));
                     }
                 })
-                .rightAdapter(new SubMenuAdapter<String>(null, mContext) {
+                .rightAdapter(new SimpleTextAdapter<String>(null, mContext) {
                     @Override
                     public String provideText(String s) {
                         return s;
@@ -183,7 +183,7 @@ public class FilterMenuAdapter implements MenuAdapter {
         filterType = new FilterType();
         filterType.desc = "11";
         List<String> childList = new ArrayList<>();
-        for (int i = 0; i < 5; ++i) {
+        for (int i = 0; i < 13; ++i) {
             childList.add("11" + i);
         }
         filterType.child = childList;
@@ -210,7 +210,7 @@ public class FilterMenuAdapter implements MenuAdapter {
 
     private View createSingleGridView() {
         SingleGridView<String> singleGridView = new SingleGridView<String>(mContext)
-                .adapter(new SubMenuAdapter<String>(null, mContext) {
+                .adapter(new SimpleTextAdapter<String>(null, mContext) {
                     @Override
                     public String provideText(String s) {
                         return s;

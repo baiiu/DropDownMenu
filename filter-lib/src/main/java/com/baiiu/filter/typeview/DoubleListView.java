@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import com.baiiu.filter.R;
 import com.baiiu.filter.adapter.BaseBaseAdapter;
-import com.baiiu.filter.adapter.SubMenuAdapter;
+import com.baiiu.filter.adapter.SimpleTextAdapter;
 import com.baiiu.filter.util.CommonUtil;
 
 import java.util.List;
@@ -53,13 +53,13 @@ public class DoubleListView<LEFTD, RIGHTD> extends LinearLayout implements Adapt
     }
 
 
-    public DoubleListView<LEFTD, RIGHTD> leftAdapter(SubMenuAdapter<LEFTD> leftAdapter) {
+    public DoubleListView<LEFTD, RIGHTD> leftAdapter(SimpleTextAdapter<LEFTD> leftAdapter) {
         mLeftAdapter = leftAdapter;
         lv_left.setAdapter(leftAdapter);
         return this;
     }
 
-    public DoubleListView<LEFTD, RIGHTD> rightAdapter(SubMenuAdapter<RIGHTD> rightAdapter) {
+    public DoubleListView<LEFTD, RIGHTD> rightAdapter(SimpleTextAdapter<RIGHTD> rightAdapter) {
         mRightAdapter = rightAdapter;
         lv_right.setAdapter(rightAdapter);
         return this;

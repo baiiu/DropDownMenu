@@ -15,11 +15,11 @@ import java.util.List;
  * Created by baiiu on 15/12/23.
  * 菜单条目适配器
  */
-public abstract class SubMenuAdapter<T> extends BaseBaseAdapter<T> {
+public abstract class SimpleTextAdapter<T> extends BaseBaseAdapter<T> {
 
     private final LayoutInflater inflater;
 
-    public SubMenuAdapter(List<T> list, Context context) {
+    public SimpleTextAdapter(List<T> list, Context context) {
         super(list, context);
         inflater = LayoutInflater.from(context);
     }

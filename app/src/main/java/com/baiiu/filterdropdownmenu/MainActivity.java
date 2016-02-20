@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import com.baiiu.filter.FilterDropDownMenu;
+import com.baiiu.filter.DropDownMenu;
 import com.baiiu.filter.interfaces.OnFilterDoneListener;
 import com.baiiu.filterdropdownmenu.entity.FilterUrl;
 
@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements OnFilterDoneListener {
 
     @Bind(R.id.filterDropDownView)
-    FilterDropDownMenu filterDropMenu;
+    DropDownMenu filterDropMenu;
 
     @Bind(R.id.mFilterContentView)
     TextView mFilterContentView;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements OnFilterDoneListe
 
     private void initFilterDropDownView() {
         String[] titleList = new String[]{"第一个", "第二个", "第三个", "第四个"};
-        filterDropMenu.setMenuAdapter(new FilterMenuAdapter(this, titleList, this));
+        filterDropMenu.setMenuAdapter(new DropMenuAdapter(this, titleList, this));
     }
 
     @Override

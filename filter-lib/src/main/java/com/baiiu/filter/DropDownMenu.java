@@ -1,7 +1,6 @@
 package com.baiiu.filter;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
@@ -16,34 +15,33 @@ import com.baiiu.filter.view.FixedTabIndicator;
 
 
 /**
- * Created by baiiu on 15/12/17.
+ * Created by baiiu.
  * 筛选器
  */
-public class FilterDropDownMenu extends RelativeLayout implements View.OnClickListener, FixedTabIndicator.OnItemClickListener {
+public class DropDownMenu extends RelativeLayout implements View.OnClickListener, FixedTabIndicator.OnItemClickListener {
 
     private FixedTabIndicator fixedTabIndicator;
     private FrameLayout frameLayoutContainer;
 
-    private String[] titles;
     private View currentView;
 
     private Animation dismissAnimation;
-    private Animation occureAnimation;
+    private Animation occurAnimation;
     private Animation alphaDismissAnimation;
-    private Animation alphaOccureAnimation;
+    private Animation alphaOccurAnimation;
 
     private MenuAdapter mMenuAdapter;
 
-    public FilterDropDownMenu(Context context) {
+    public DropDownMenu(Context context) {
         this(context, null);
     }
 
-    public FilterDropDownMenu(Context context, AttributeSet attrs) {
+    public DropDownMenu(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public FilterDropDownMenu(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DropDownMenu(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -170,23 +168,10 @@ public class FilterDropDownMenu extends RelativeLayout implements View.OnClickLi
 
     public void setCurrentIndicatorText(String text) {
         verifyContainer();
-
-        if (TextUtils.isEmpty(text)) {
-            text = titles[fixedTabIndicator.getCurrentIndicatorPosition()];
-        }
-
         fixedTabIndicator.setCurrentText(text);
-        close();
     }
 
     //=======================之上对外暴漏方法=======================================
-
-    private void setTitles(String[] titles) {
-        verifyContainer();
-        this.titles = titles;
-        fixedTabIndicator.setTitles(titles);
-    }
-
     private void initListener() {
         frameLayoutContainer.setOnClickListener(this);
         fixedTabIndicator.setOnItemClickListener(this);
@@ -219,10 +204,10 @@ public class FilterDropDownMenu extends RelativeLayout implements View.OnClickLi
 
             if (isClosed()) {
                 frameLayoutContainer.setVisibility(VISIBLE);
-                frameLayoutContainer.startAnimation(alphaOccureAnimation);
+                frameLayoutContainer.startAnimation(alphaOccurAnimation);
 
                 //可移出去,进行每次展出
-                currentView.startAnimation(occureAnimation);
+                currentView.startAnimation(occurAnimation);
             }
 
 
@@ -231,7 +216,7 @@ public class FilterDropDownMenu extends RelativeLayout implements View.OnClickLi
 
 
     private void initAnimation() {
-        occureAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.top_in);
+        occurAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.top_in);
 
         SimpleAnimationListener listener = new SimpleAnimationListener() {
             @Override
@@ -248,8 +233,8 @@ public class FilterDropDownMenu extends RelativeLayout implements View.OnClickLi
         alphaDismissAnimation.setDuration(300);
         alphaDismissAnimation.setAnimationListener(listener);
 
-        alphaOccureAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.alpha_to_one);
-        alphaOccureAnimation.setDuration(300);
+        alphaOccurAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.alpha_to_one);
+        alphaOccurAnimation.setDuration(300);
     }
 
     private void verifyMenuAdapter() {

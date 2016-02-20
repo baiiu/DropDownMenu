@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ScrollView;
 
-import com.baiiu.filter.adapter.SubMenuAdapter;
+import com.baiiu.filter.adapter.SimpleTextAdapter;
 import com.baiiu.filter.interfaces.OnFilterDoneListener;
 import com.baiiu.filter.util.CommonUtil;
 import com.baiiu.filter.util.UIUtil;
@@ -37,8 +37,8 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
     @Bind(R.id.bt_confirm)
     Button bt_confirm;
 
-    private SubMenuAdapter<String> mTopAdapter;
-    private SubMenuAdapter<String> mBottomAdapter;
+    private SimpleTextAdapter<String> mTopAdapter;
+    private SimpleTextAdapter<String> mBottomAdapter;
 
     private OnFilterDoneListener onFilterDoneListener;
 
@@ -71,7 +71,7 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
 
     private void initAdapter(Context context) {
 
-        mTopAdapter = new SubMenuAdapter<String>(null, context) {
+        mTopAdapter = new SimpleTextAdapter<String>(null, context) {
             @Override
             public String provideText(String phase) {
                 return phase;
@@ -86,7 +86,7 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
         };
 
 
-        mBottomAdapter = new SubMenuAdapter<String>(null, context) {
+        mBottomAdapter = new SimpleTextAdapter<String>(null, context) {
             @Override
             public String provideText(String area) {
                 return area;
