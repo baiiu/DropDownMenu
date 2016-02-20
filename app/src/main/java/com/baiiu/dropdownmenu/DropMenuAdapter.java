@@ -1,4 +1,4 @@
-package com.baiiu.filterdropdownmenu;
+package com.baiiu.dropdownmenu;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -15,9 +15,9 @@ import com.baiiu.filter.typeview.SingleListView;
 import com.baiiu.filter.util.CommonUtil;
 import com.baiiu.filter.util.UIUtil;
 import com.baiiu.filter.view.FilterCheckedTextView;
-import com.baiiu.filterdropdownmenu.entity.FilterType;
-import com.baiiu.filterdropdownmenu.entity.FilterUrl;
-import com.baiiu.filterdropdownmenu.view.DoubleGridView;
+import com.baiiu.dropdownmenu.entity.FilterType;
+import com.baiiu.dropdownmenu.entity.FilterUrl;
+import com.baiiu.dropdownmenu.view.DoubleGridView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -199,9 +199,9 @@ public class DropMenuAdapter implements MenuAdapter {
         filterType.child = childList;
         list.add(filterType);
 
-        //初始化选中
-        comTypeDoubleListView.setLeftList(list, 0);
-        comTypeDoubleListView.setRightList(list.get(0).child, -1);
+        //初始化选中.
+        comTypeDoubleListView.setLeftList(list, 1);
+        comTypeDoubleListView.setRightList(list.get(1).child, -1);
         comTypeDoubleListView.getLeftListView().setBackgroundColor(mContext.getResources().getColor(R.color.b_c_fafafa));
 
         return comTypeDoubleListView;

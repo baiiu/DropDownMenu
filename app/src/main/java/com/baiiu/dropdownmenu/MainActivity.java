@@ -1,4 +1,4 @@
-package com.baiiu.filterdropdownmenu;
+package com.baiiu.dropdownmenu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.baiiu.filter.DropDownMenu;
 import com.baiiu.filter.interfaces.OnFilterDoneListener;
-import com.baiiu.filterdropdownmenu.entity.FilterUrl;
+import com.baiiu.dropdownmenu.entity.FilterUrl;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

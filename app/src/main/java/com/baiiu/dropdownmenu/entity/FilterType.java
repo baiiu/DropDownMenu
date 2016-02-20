@@ -1,4 +1,4 @@
-package com.baiiu.filterdropdownmenu.entity;
+package com.baiiu.dropdownmenu.entity;
 
 import java.util.List;
 

@@ -2,6 +2,7 @@ package com.baiiu.filter.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
@@ -91,6 +92,7 @@ public class FixedTabIndicator extends LinearLayout {
     private void init(Context context) {
         this.context = context;
         setOrientation(LinearLayout.HORIZONTAL);
+        setBackgroundColor(Color.WHITE);
         setWillNotDraw(false);
 
         mDividerPaint = new Paint();
@@ -131,7 +133,6 @@ public class FixedTabIndicator extends LinearLayout {
 
         //下边黑线
         canvas.drawRect(0, measureHeight - mLineHeight, measuredWidth, measureHeight, mLinePaint);
-
     }
 
     /**
@@ -232,11 +233,7 @@ public class FixedTabIndicator extends LinearLayout {
         tv.setTextColor(mTabDefaultColor);
         tv.setSingleLine();
         tv.setEllipsize(TextUtils.TruncateAt.END);
-        tv.setMaxEms(6);//限制4个字符，超过换行
-//        int maxLength = 4;
-//        InputFilter[] fArray = new InputFilter[1];
-//        fArray[0] = new InputFilter.LengthFilter(maxLength);
-//        tv.setFilters(fArray);
+        tv.setMaxEms(6);//限制4个字符
         Drawable drawable = getResources().getDrawable(R.drawable.level_filter);
         tv.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
         tv.setCompoundDrawablePadding(drawableRight);

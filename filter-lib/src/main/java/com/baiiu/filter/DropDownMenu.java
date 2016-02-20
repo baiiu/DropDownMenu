@@ -1,6 +1,7 @@
 package com.baiiu.filter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
@@ -47,7 +48,7 @@ public class DropDownMenu extends RelativeLayout implements View.OnClickListener
     }
 
     private void init(Context context) {
-//        setBackgroundColor(Color.WHITE);
+        setBackgroundColor(Color.WHITE);
     }
 
     @Override
