@@ -1,4 +1,4 @@
-package com.baiiu.filterdropdownmenu;
+package com.baiiu.filterdropdownmenu.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

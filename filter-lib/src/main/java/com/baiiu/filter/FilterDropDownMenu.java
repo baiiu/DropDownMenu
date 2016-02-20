@@ -1,7 +1,6 @@
 package com.baiiu.filter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -50,7 +49,13 @@ public class FilterDropDownMenu extends RelativeLayout implements View.OnClickLi
     }
 
     private void init(Context context) {
-        setBackgroundColor(Color.WHITE);
+//        setBackgroundColor(Color.WHITE);
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        setContentView(findViewById(R.id.mFilterContentView));
     }
 
     public void setContentView(View contentView) {
@@ -61,7 +66,6 @@ public class FilterDropDownMenu extends RelativeLayout implements View.OnClickLi
          */
         fixedTabIndicator = new FixedTabIndicator(getContext());
         fixedTabIndicator.setId(R.id.fixedTabIndicator);
-//        fixedTabIndicator.setBackgroundResource(R.drawable.line_divider_bg_bottom);
         addView(fixedTabIndicator, -1, UIUtil.dp(getContext(), 50));
 
         LayoutParams params = new LayoutParams(-1, -1);
@@ -112,6 +116,16 @@ public class FilterDropDownMenu extends RelativeLayout implements View.OnClickLi
         }
     }
 
+    public View findViewAtPosition(int position) {
+        verifyContainer();
+
+        View view = frameLayoutContainer.getChildAt(position);
+        if (view == null) {
+            view = mMenuAdapter.getView(position, frameLayoutContainer);
+        }
+
+        return view;
+    }
 
     private void setPositionView(int position, View view, int bottomMargin) {
         verifyContainer();
@@ -163,17 +177,6 @@ public class FilterDropDownMenu extends RelativeLayout implements View.OnClickLi
 
         fixedTabIndicator.setCurrentText(text);
         close();
-    }
-
-    public View findViewAtPosition(int position) {
-        verifyContainer();
-
-        View view = frameLayoutContainer.getChildAt(position);
-        if (view == null) {
-            view = mMenuAdapter.getView(position, frameLayoutContainer);
-        }
-
-        return view;
     }
 
     //=======================之上对外暴漏方法=======================================

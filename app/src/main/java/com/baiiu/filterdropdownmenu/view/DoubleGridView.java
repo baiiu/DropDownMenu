@@ -1,4 +1,4 @@
-package com.baiiu.filterdropdownmenu;
+package com.baiiu.filterdropdownmenu.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -14,6 +14,7 @@ import com.baiiu.filter.interfaces.OnFilterDoneListener;
 import com.baiiu.filter.util.CommonUtil;
 import com.baiiu.filter.util.UIUtil;
 import com.baiiu.filter.view.FilterCheckedTextView;
+import com.baiiu.filterdropdownmenu.R;
 import com.baiiu.filterdropdownmenu.entity.FilterUrl;
 
 import java.util.List;

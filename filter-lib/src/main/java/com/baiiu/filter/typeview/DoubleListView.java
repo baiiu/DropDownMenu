@@ -81,7 +81,6 @@ public class DoubleListView<LEFTD, RIGHTD> extends LinearLayout implements Adapt
         }
     }
 
-
     private OnLeftItemClickListener<LEFTD, RIGHTD> mOnLeftItemClickListener;
     private OnRightItemClickListener<LEFTD, RIGHTD> mOnRightItemClickListener;
 

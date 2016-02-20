@@ -17,6 +17,7 @@ import com.baiiu.filter.util.UIUtil;
 import com.baiiu.filter.view.FilterCheckedTextView;
 import com.baiiu.filterdropdownmenu.entity.FilterType;
 import com.baiiu.filterdropdownmenu.entity.FilterUrl;
+import com.baiiu.filterdropdownmenu.view.DoubleGridView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,10 +60,6 @@ public class FilterMenuAdapter implements MenuAdapter {
     @Override
     public View getView(int position, FrameLayout parentContainer) {
         View view = parentContainer.getChildAt(position);
-
-        if (view != null) {
-            return view;
-        }
 
         switch (position) {
             case 0:
@@ -113,7 +110,7 @@ public class FilterMenuAdapter implements MenuAdapter {
         for (int i = 0; i < 10; ++i) {
             list.add("" + i);
         }
-        singleListView.setList(list, 0);
+        singleListView.setList(list, -1);
 
         return singleListView;
     }
@@ -177,20 +174,22 @@ public class FilterMenuAdapter implements MenuAdapter {
 
         List<FilterType> list = new ArrayList<>();
 
+        //第一项
         FilterType filterType = new FilterType();
         filterType.desc = "10";
+        list.add(filterType);
+
+        //第二项
+        filterType = new FilterType();
+        filterType.desc = "11";
         List<String> childList = new ArrayList<>();
-        for (int i = 0; i < 10; ++i) {
-            childList.add("10" + i);
+        for (int i = 0; i < 5; ++i) {
+            childList.add("11" + i);
         }
         filterType.child = childList;
         list.add(filterType);
 
-
-        filterType = new FilterType();
-        filterType.desc = "11";
-        list.add(filterType);
-
+        //第三项
         filterType = new FilterType();
         filterType.desc = "12";
         childList = new ArrayList<>();
@@ -238,10 +237,10 @@ public class FilterMenuAdapter implements MenuAdapter {
                 });
 
         List<String> list = new ArrayList<>();
-        for (int i = 0; i < 15; ++i) {
-            list.add("2" + i);
+        for (int i = 20; i < 39; ++i) {
+            list.add(String.valueOf(i));
         }
-        singleGridView.setList(list, 0);
+        singleGridView.setList(list, -1);
 
 
         return singleGridView;

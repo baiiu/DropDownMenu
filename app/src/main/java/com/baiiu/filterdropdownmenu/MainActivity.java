@@ -3,8 +3,6 @@ package com.baiiu.filterdropdownmenu;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.TextView;
 
 import com.baiiu.filter.FilterDropDownMenu;
@@ -19,7 +17,8 @@ public class MainActivity extends AppCompatActivity implements OnFilterDoneListe
     @Bind(R.id.filterDropDownView)
     FilterDropDownMenu filterDropMenu;
 
-    TextView textView;
+    @Bind(R.id.mFilterContentView)
+    TextView mFilterContentView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +29,8 @@ public class MainActivity extends AppCompatActivity implements OnFilterDoneListe
         Toolbar toolbar = ButterKnife.findById(this, R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        View contentView = LayoutInflater.from(this).inflate(R.layout.include_refreshlist, null);
-        filterDropMenu.setContentView(contentView);
-
-        textView = ButterKnife.findById(contentView, R.id.text);
         initFilterDropDownView();
     }
-
 
     private void initFilterDropDownView() {
         String[] titleList = new String[]{"第一个", "第二个", "第三个", "第四个"};
@@ -52,6 +45,6 @@ public class MainActivity extends AppCompatActivity implements OnFilterDoneListe
 
         filterDropMenu.close();
 
-        textView.setText(FilterUrl.instance().toString());
+        mFilterContentView.setText(FilterUrl.instance().toString());
     }
 }
