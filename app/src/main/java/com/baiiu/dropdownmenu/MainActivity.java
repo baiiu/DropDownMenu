@@ -14,8 +14,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements OnFilterDoneListener {
 
-    @Bind(R.id.filterDropDownView)
-    DropDownMenu filterDropMenu;
+    @Bind(R.id.dropDownMenu)
+    DropDownMenu dropDownMenu;
 
     @Bind(R.id.mFilterContentView)
     TextView mFilterContentView;
@@ -34,17 +34,23 @@ public class MainActivity extends AppCompatActivity implements OnFilterDoneListe
 
     private void initFilterDropDownView() {
         String[] titleList = new String[]{"第一个", "第二个", "第三个", "第四个"};
-        filterDropMenu.setMenuAdapter(new DropMenuAdapter(this, titleList, this));
+        dropDownMenu.setMenuAdapter(new DropMenuAdapter(this, titleList, this));
     }
 
     @Override
     public void onFilterDone(int position, String positionTitle, String urlValue) {
         if (position != 3) {
-            filterDropMenu.setPositionIndicatorText(FilterUrl.instance().position, FilterUrl.instance().positionTitle);
+            dropDownMenu.setPositionIndicatorText(FilterUrl.instance().position, FilterUrl.instance().positionTitle);
         }
 
-        filterDropMenu.close();
+        dropDownMenu.close();
 
         mFilterContentView.setText(FilterUrl.instance().toString());
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FilterUrl.instance().clear();
     }
 }
