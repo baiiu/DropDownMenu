@@ -2,7 +2,7 @@
 This is a DropDownMenu with taking advantage of all dropDownMenus by others before,
 I have written it for three times, Now the code is most clearly.
 
-[中文文档](https://github.com/baiiu/DropDownMenu/blob/master/README-ZH.md)
+[中文文档](README-ZH.md)
 
 ##Feature
 1. use Adapter to add the SubDropDownMenu. Override the `getView()` method to supply the wantted view.
