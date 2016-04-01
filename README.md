@@ -1,20 +1,21 @@
-##DropDownMenu
-筛选器. 尽管之前有很多人写,站在别人基础上重新写了一版.因为公司筛选器逻辑十分复杂,而且各种数据model不一样.
-现在的代码已经很清晰明了,模块分明.
+## DropDownMenu
+This is a DropDownMenu with taking advantage of all dropDownMenus by others before,
+I have written it for three times, Now the code is most clearly.
 
-##特点
-1. 使用 Adapter模式 添加筛选器条目.使代码清晰可见,便于维护.
-2. 提供三种泛型View类, 单列ListView,双列ListView 和 单个GridView, sample中还提供了两个GridView的示例.(用泛型是因为公司项目多个地方的筛选器model不一样,泪奔)
-3. 自己写FilterCheckedView,支持checked属性,使用selector就可配置选中样式.配合AbsListView.setChecked()使用
-4. 使用FilterUrl作为中介,toString()方法获取到所拼接url,隔离了数据和View,使代码更清晰.
+[中文文档](https://github.com/baiiu/DropDownMenu/blob/master/README-ZH.md)
+
+##Feature
+1. use Adapter to add the SubDropDownMenu. Override the `getView()` method to supply the wantted view.
+2. use Generic to make all kinds of model(pojo,javabean...) can be used.
+3. use FilterCheckedView which implements `Checkable`, so you can use selector to respond to all user action.
+4. use FilterUrl to save the current choosen data, only override `toString()` you will get the url.
 
 ##ScreenShot
 ![DropDownMenu](images/dropDownMenu.gif "Gif Example")
 
 
-
-##使用
-布局文件
+## Usage 
+the xml: 
 ```
     <com.baiiu.filter.DropDownMenu
         android:id="@+id/filterDropDownView"
@@ -22,7 +23,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@id/mFilterContentView" //mFilterContentView标识为其内部内容,可换为RecyclerView等. id必填.
+            android:id="@id/mFilterContentView" //mFilterContentView must be add into the view.the view can be a RecyclerView or others.
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
@@ -30,37 +31,65 @@
     </com.baiiu.filter.DropDownMenu>
 ```
 
-代码中:
+the javaCode:
 ```
-    //代码中设置Adapter.
+    //set the Adapter.
     dropDownView.setMenuAdapter(new DropMenuAdapter(this, titleList));
 ```
 
-添加SingleListView
+the DropMenuAdapater:
 ```
-    SingleListView<String> singleListView = new SingleListView<String>(mContext)
-            .adapter(new SimpleTextAdapter<String>(null, mContext) {
-                @Override
-                public String provideText(String string) {
-                    return string;
-                }
-            })
-            .onItemClick(new OnFilterItemClickListener<String>() {
-                @Override
-                public void onItemClick(String item) {
-                    FilterUrl.instance().singleListPosition = item;
+ @Override
+    public int getMenuCount() {
+        return titles.length;
+    }
 
-                    FilterUrl.instance().position = 0;
-                    FilterUrl.instance().positionTitle = item;
+    @Override
+    public String getMenuTitle(int position) {
+        return titles[position];
+    }
 
-                    if (onFilterDoneListener != null) {
-                        onFilterDoneListener.onFilterDone(0, "", "");
+    @Override
+    public int getBottomMargin(int position) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int position, FrameLayout parentContainer) {
+        ...
+        return createSingleListView();
+    }
+```
+
+add a SingleListView:
+```java
+
+    private View createSingleListView() {
+    
+        SingleListView<String> singleListView = new SingleListView<String>(mContext)
+                .adapter(new SimpleTextAdapter<String>(null, mContext) {
+                    @Override
+                    public String provideText(String string) {
+                        return string;
                     }
-                }
-            });
-            
-    //初始化数据
-    singleListView.setList(list, -1);
+                })
+                .onItemClick(new OnFilterItemClickListener<String>() {
+                    @Override
+                    public void onItemClick(String item) {
+                        FilterUrl.instance().singleListPosition = item;
+    
+                        FilterUrl.instance().position = 0;
+                        FilterUrl.instance().positionTitle = item;
+    
+                        if (onFilterDoneListener != null) {
+                            onFilterDoneListener.onFilterDone(0, "", "");
+                        }
+                    }
+                });
+                
+        //初始化数据
+        singleListView.setList(list, -1);//默认不选中
+    }
 ```
 
 
