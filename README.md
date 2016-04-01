@@ -13,7 +13,6 @@ I have written it for three times, Now the code is most clearly.
 ##ScreenShot
 ![DropDownMenu](images/dropDownMenu.gif "Gif Example")
 
-
 ## Usage 
 the xml: 
 ```
@@ -28,7 +27,7 @@ the xml:
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:textSize="22sp" />
-    </com.baiiu.filter.DropDownMenu>
+    </com.baiiu.filter.DropDownMenu> 
 ```
 
 the javaCode:
