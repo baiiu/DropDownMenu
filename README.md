@@ -1,8 +1,8 @@
 ## DropDownMenu
-This is a DropDownMenu with taking advantage of all dropDownMenus by others before,
-I have written it for three times, Now the code is most clearly.
+This is a DropDownMenu with the advantage of all the dropDownMenus by others before,
+I have written it for several times, Now the code is most clearly.
 
-[中文文档](README-ZH.md)
+[中文文档](README-cn.md)
 
 ##Feature
 1. use Adapter to add the SubDropDownMenu. Override the `getView()` method to supply the wantted view.
