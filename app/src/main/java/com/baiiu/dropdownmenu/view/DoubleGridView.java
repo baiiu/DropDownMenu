@@ -42,7 +42,6 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
 
     private OnFilterDoneListener onFilterDoneListener;
 
-
     public DoubleGridView(Context context) {
         this(context, null);
     }
@@ -53,10 +52,10 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
     }
 
     private void init(Context context) {
-        View view = inflate(context, R.layout.merge_filter_third, this);
+        inflate(context, R.layout.merge_filter_third, this);
         setBackgroundResource(android.R.color.white);
 
-        ButterKnife.bind(this, view);
+        ButterKnife.bind(this, this);
 
         bt_confirm.setOnClickListener(this);
 
@@ -85,7 +84,6 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
             }
         };
 
-
         mBottomAdapter = new SimpleTextAdapter<String>(null, context) {
             @Override
             public String provideText(String area) {
@@ -99,7 +97,6 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
                 checkedTextView.setGravity(Gravity.CENTER);
             }
         };
-
 
         mTopGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -116,7 +113,6 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
         mTopAdapter.setList(list);
     }
 
-
     public void setBottomGridList(List<String> list) {
         if (CommonUtil.isEmpty(list)) {
             return;
@@ -124,7 +120,6 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
 
         mBottomAdapter.setList(list);
     }
-
 
     @Override
     public void onClick(View v) {
@@ -143,9 +138,7 @@ public class DoubleGridView extends ScrollView implements View.OnClickListener {
         if (onFilterDoneListener != null) {
             onFilterDoneListener.onFilterDone(3, "", "");
         }
-
     }
-
 
     public void setOnFilterDoneListener(OnFilterDoneListener listener) {
         onFilterDoneListener = listener;

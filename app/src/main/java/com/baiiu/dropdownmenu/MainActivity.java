@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements OnFilterDoneListe
         }
 
         dropDownMenu.close();
-
         mFilterContentView.setText(FilterUrl.instance().toString());
     }
 

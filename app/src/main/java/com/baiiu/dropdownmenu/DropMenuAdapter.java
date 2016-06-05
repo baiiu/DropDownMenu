@@ -5,6 +5,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.baiiu.dropdownmenu.doubleGrid.BetterDoubleGridView;
 import com.baiiu.filter.adapter.MenuAdapter;
 import com.baiiu.filter.adapter.SimpleTextAdapter;
 import com.baiiu.filter.interfaces.OnFilterDoneListener;
@@ -72,13 +73,13 @@ public class DropMenuAdapter implements MenuAdapter {
                 view = createSingleGridView();
                 break;
             case 3:
-                view = createDoubleGrid();
+                // view = createDoubleGrid();
+                view = createBetterDoubleGrid();
                 break;
         }
 
         return view;
     }
-
 
     private View createSingleListView() {
         SingleListView<String> singleListView = new SingleListView<String>(mContext)
@@ -244,6 +245,26 @@ public class DropMenuAdapter implements MenuAdapter {
 
 
         return singleGridView;
+    }
+
+
+    private View createBetterDoubleGrid() {
+
+        List<String> phases = new ArrayList<>();
+        for (int i = 0; i < 10; ++i) {
+            phases.add("3top" + i);
+        }
+        List<String> areas = new ArrayList<>();
+        for (int i = 0; i < 10; ++i) {
+            areas.add("3bottom" + i);
+        }
+
+
+        return new BetterDoubleGridView(mContext)
+                .setmTopGridData(phases)
+                .setmBottomGridList(areas)
+                .setOnFilterDoneListener(onFilterDoneListener)
+                .build();
     }
 
 
