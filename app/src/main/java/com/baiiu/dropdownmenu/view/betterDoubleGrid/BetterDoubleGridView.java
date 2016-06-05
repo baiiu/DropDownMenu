@@ -1,4 +1,4 @@
-package com.baiiu.dropdownmenu.doubleGrid;
+package com.baiiu.dropdownmenu.view.betterDoubleGrid;
 
 import android.annotation.TargetApi;
 import android.content.Context;

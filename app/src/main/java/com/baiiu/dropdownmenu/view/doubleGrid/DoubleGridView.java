@@ -1,4 +1,4 @@
-package com.baiiu.dropdownmenu.view;
+package com.baiiu.dropdownmenu.view.doubleGrid;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,12 +1,12 @@
-package com.baiiu.dropdownmenu.doubleGrid;
+package com.baiiu.dropdownmenu.view.betterDoubleGrid;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.baiiu.dropdownmenu.doubleGrid.holder.ItemViewHolder;
-import com.baiiu.dropdownmenu.doubleGrid.holder.TitleViewHolder;
+import com.baiiu.dropdownmenu.view.betterDoubleGrid.holder.ItemViewHolder;
+import com.baiiu.dropdownmenu.view.betterDoubleGrid.holder.TitleViewHolder;
 
 import java.util.List;
 

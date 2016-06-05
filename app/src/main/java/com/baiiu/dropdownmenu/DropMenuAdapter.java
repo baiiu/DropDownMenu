@@ -5,7 +5,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.baiiu.dropdownmenu.doubleGrid.BetterDoubleGridView;
+import com.baiiu.dropdownmenu.view.betterDoubleGrid.BetterDoubleGridView;
 import com.baiiu.filter.adapter.MenuAdapter;
 import com.baiiu.filter.adapter.SimpleTextAdapter;
 import com.baiiu.filter.interfaces.OnFilterDoneListener;
@@ -18,7 +18,7 @@ import com.baiiu.filter.util.UIUtil;
 import com.baiiu.filter.view.FilterCheckedTextView;
 import com.baiiu.dropdownmenu.entity.FilterType;
 import com.baiiu.dropdownmenu.entity.FilterUrl;
-import com.baiiu.dropdownmenu.view.DoubleGridView;
+import com.baiiu.dropdownmenu.view.doubleGrid.DoubleGridView;
 
 import java.util.ArrayList;
 import java.util.List;
