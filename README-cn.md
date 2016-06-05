@@ -1,20 +1,20 @@
-## DropDownMenu
-This is a DropDownMenu with the advantage of all the dropDownMenus by others before,
-I have written it for several times, Now the code is most clearly.
+##DropDownMenu
+筛选器. 尽管之前有很多人写,站在别人基础上重新写了一版,适配各种数据model.
+现在的代码已经很清晰明了,模块分明.
 
-[中文文档](README-cn.md)
-
-##Feature
-1. use Adapter to add the SubDropDownMenu. Override the `getView()` method to supply the wantted view.
-2. use Generic to make all kinds of model(pojo,javabean...) can be used.
-3. use FilterCheckedView which implements `Checkable`, so you can use selector to respond to all user action.
-4. use FilterUrl to save the current choosen data, only override `toString()` you will get the url.
+##特点
+1. 使用 Adapter模式 添加筛选器条目.使代码清晰可见,便于维护.
+2. 使用泛型支持各种数据数据model. 提供三种泛型View类, 单列ListView,双列ListView 和 单个GridView, sample中还提供了两个GridView的示例.
+3. 自己写FilterCheckedView,支持checked属性,使用selector就可配置选中样式.配合AbsListView.setChecked()使用
+4. 使用FilterUrl作为中介,toString()方法获取到所拼接url,隔离了数据和View,使代码更清晰.
 
 ##ScreenShot
 ![DropDownMenu](images/dropDownMenu.gif "Gif Example")
 
-## Usage 
-the xml: 
+
+
+##使用
+布局文件
 ```
     <com.baiiu.filter.DropDownMenu
         android:id="@+id/filterDropDownView"
@@ -22,21 +22,21 @@ the xml:
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@id/mFilterContentView" //mFilterContentView must be add into the view.the view can be a RecyclerView or others.
+            android:id="@id/mFilterContentView" //mFilterContentView标识为其内部内容,可换为RecyclerView等. id必填.
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:textSize="22sp" />
-    </com.baiiu.filter.DropDownMenu> 
+    </com.baiiu.filter.DropDownMenu>
 ```
 
-the javaCode:
-```
-    //set the Adapter.
+代码中:
+```java
+    //代码中设置Adapter.
     dropDownView.setMenuAdapter(new DropMenuAdapter(this, titleList));
 ```
 
-the DropMenuAdapater:
+DropMenuAdapater中:
 ```
  @Override
     public int getMenuCount() {
@@ -60,11 +60,9 @@ the DropMenuAdapater:
     }
 ```
 
-add a SingleListView:
-```java
-
+添加SingleListView
+```java 
     private View createSingleListView() {
-    
         SingleListView<String> singleListView = new SingleListView<String>(mContext)
                 .adapter(new SimpleTextAdapter<String>(null, mContext) {
                     @Override
