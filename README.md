@@ -18,80 +18,79 @@ I have written it for several times, Now the code is most clearly.
 
 ## Usage 
 the xml: 
-```
-    <com.baiiu.filter.DropDownMenu
-        android:id="@+id/filterDropDownView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+```xml
+<com.baiiu.filter.DropDownMenu
+    android:id="@+id/filterDropDownView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-        <TextView
-            android:id="@id/mFilterContentView" //mFilterContentView must be add into the view.the view can be a RecyclerView or others.
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:textSize="22sp" />
-    </com.baiiu.filter.DropDownMenu> 
+    <TextView
+        android:id="@id/mFilterContentView" //mFilterContentView must be add into the view.the view can be a RecyclerView or others.
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textSize="22sp" />
+</com.baiiu.filter.DropDownMenu> 
 ```
 
 the JavaCode:
-```
-    //set the Adapter.
-    dropDownView.setMenuAdapter(new DropMenuAdapter(this, titleList));
+```java
+//set the Adapter.
+dropDownView.setMenuAdapter(new DropMenuAdapter(this, titleList));
 ```
 
 the DropMenuAdapter:
-```
- @Override
-    public int getMenuCount() {
-        return titles.length;
-    }
+```java
+@Override
+public int getMenuCount() {
+    return titles.length;
+}
 
-    @Override
-    public String getMenuTitle(int position) {
-        return titles[position];
-    }
+@Override
+public String getMenuTitle(int position) {
+    return titles[position];
+}
 
-    @Override
-    public int getBottomMargin(int position) {
-        return 0;
-    }
+@Override
+public int getBottomMargin(int position) {
+    return 0;
+}
 
-    @Override
-    public View getView(int position, FrameLayout parentContainer) {
-        ...
-        return createSingleListView();
-    }
+@Override
+public View getView(int position, FrameLayout parentContainer) {
+    ...
+    return createSingleListView();
+}
 ```
 
 add a SingleListView:
 ```java
+private View createSingleListView() {
 
-    private View createSingleListView() {
-    
-        SingleListView<String> singleListView = new SingleListView<String>(mContext)
-                .adapter(new SimpleTextAdapter<String>(null, mContext) {
-                    @Override
-                    public String provideText(String string) {
-                        return string;
+    SingleListView<String> singleListView = new SingleListView<String>(mContext)
+            .adapter(new SimpleTextAdapter<String>(null, mContext) {
+                @Override
+                public String provideText(String string) {
+                    return string;
+                }
+            })
+            .onItemClick(new OnFilterItemClickListener<String>() {
+                @Override
+                public void onItemClick(String item) {
+                    FilterUrl.instance().singleListPosition = item;
+
+                    FilterUrl.instance().position = 0;
+                    FilterUrl.instance().positionTitle = item;
+
+                    if (onFilterDoneListener != null) {
+                        onFilterDoneListener.onFilterDone(0, "", "");
                     }
-                })
-                .onItemClick(new OnFilterItemClickListener<String>() {
-                    @Override
-                    public void onItemClick(String item) {
-                        FilterUrl.instance().singleListPosition = item;
-    
-                        FilterUrl.instance().position = 0;
-                        FilterUrl.instance().positionTitle = item;
-    
-                        if (onFilterDoneListener != null) {
-                            onFilterDoneListener.onFilterDone(0, "", "");
-                        }
-                    }
-                });
-                
-        //初始化数据
-        singleListView.setList(list, -1);//默认不选中
-    }
+                }
+            });
+            
+    //初始化数据
+    singleListView.setList(list, -1);//默认不选中
+}
 ```
 
 
