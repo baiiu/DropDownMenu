@@ -1,4 +1,8 @@
 ##DropDownMenu
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-DropDownMenu-green.svg?style=true)](https://android-arsenal.com/details/1/3803)
+
+
+
 筛选器. 尽管之前有很多人写,站在别人基础上重新写了一版,适配各种数据model.
 现在的代码已经很清晰明了,模块分明.
 
