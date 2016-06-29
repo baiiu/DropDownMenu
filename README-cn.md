@@ -36,7 +36,7 @@
     dropDownView.setMenuAdapter(new DropMenuAdapter(this, titleList));
 ```
 
-DropMenuAdapater中:
+DropMenuAdapter中:
 ```
  @Override
     public int getMenuCount() {

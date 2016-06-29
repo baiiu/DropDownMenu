@@ -30,13 +30,13 @@ the xml:
     </com.baiiu.filter.DropDownMenu> 
 ```
 
-the javaCode:
+the JavaCode:
 ```
     //set the Adapter.
     dropDownView.setMenuAdapter(new DropMenuAdapter(this, titleList));
 ```
 
-the DropMenuAdapater:
+the DropMenuAdapter:
 ```
  @Override
     public int getMenuCount() {
