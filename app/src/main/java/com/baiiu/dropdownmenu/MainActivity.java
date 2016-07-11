@@ -5,9 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
+import com.baiiu.dropdownmenu.entity.FilterUrl;
 import com.baiiu.filter.DropDownMenu;
 import com.baiiu.filter.interfaces.OnFilterDoneListener;
-import com.baiiu.dropdownmenu.entity.FilterUrl;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

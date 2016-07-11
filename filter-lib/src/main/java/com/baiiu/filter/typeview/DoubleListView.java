@@ -117,6 +117,10 @@ public class DoubleListView<LEFTD, RIGHTD> extends LinearLayout implements Adapt
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (CommonUtil.isFastDoubleClick()) {
+            return;
+        }
+
         if (mLeftAdapter == null || mRightAdapter == null) {
             return;
         }

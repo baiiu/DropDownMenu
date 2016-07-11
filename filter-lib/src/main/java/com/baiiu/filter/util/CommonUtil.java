@@ -76,17 +76,16 @@ public class CommonUtil {
         return false;
     }
 
-    public static String pidReplace(String pid) {
-        if (TextUtils.isEmpty(pid)) {
-            return "";
-        }
+    public static long mLastClickTime;
 
-        if (pid.contains("/")) {
-            pid = pid.replaceFirst("/", "");
+    public static boolean isFastDoubleClick() {
+        long time = System.currentTimeMillis();
+        long timeD = time - mLastClickTime;
+        if (0 < timeD && timeD < 500) {
+            return true;
         }
-
-        return pid;
+        mLastClickTime = time;
+        return false;
     }
-
 
 }
