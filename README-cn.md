@@ -1,4 +1,4 @@
-##DropDownMenu
+## DropDownMenu
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-DropDownMenu-green.svg?style=true)](https://android-arsenal.com/details/1/3803)
 
 
@@ -6,18 +6,18 @@
 筛选器. 尽管之前有很多人写,站在别人基础上重新写了一版,适配各种数据model.
 现在的代码已经很清晰明了,模块分明.
 
-##特点
+## 特点
 1. 使用 Adapter模式 添加筛选器条目.使代码清晰可见,便于维护.
 2. 使用泛型支持各种数据数据model. 提供三种泛型View类, 单列ListView,双列ListView 和 单个GridView, sample中还提供了两个GridView的示例.
 3. 自己写FilterCheckedView,支持checked属性,使用selector就可配置选中样式.配合AbsListView.setChecked()使用
 4. 使用FilterUrl作为中介,toString()方法获取到所拼接url,隔离了数据和View,使代码更清晰.
 
-##ScreenShot
+## ScreenShot
 ![DropDownMenu](images/dropDownMenu.gif "Gif Example")
 
 
 
-##使用
+## 使用
 布局文件
 ```
     <com.baiiu.filter.DropDownMenu
