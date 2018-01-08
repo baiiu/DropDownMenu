@@ -2,26 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        android:theme="@style/AppTheme.AppBarOverlay" />
+        android:theme="@style/AppTheme.AppBarOverlay"
+        />
 
     <com.baiiu.filter.DropDownMenu
         android:id="@+id/dropDownMenu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <TextView
             android:id="@id/mFilterContentView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            />
     </com.baiiu.filter.DropDownMenu>
 
 </LinearLayout>

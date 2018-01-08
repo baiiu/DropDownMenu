@@ -10,16 +10,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.baiiu.dropdownmenu.R;
 import com.baiiu.dropdownmenu.entity.FilterUrl;
 import com.baiiu.filter.interfaces.OnFilterDoneListener;
-
 import java.util.List;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * auther: baiiu
@@ -28,8 +25,7 @@ import butterknife.OnClick;
  */
 public class BetterDoubleGridView extends LinearLayout implements View.OnClickListener {
 
-    @Bind(R.id.recyclerView)
-    RecyclerView recyclerView;
+    @BindView(R.id.recyclerView) RecyclerView recyclerView;
 
     private List<String> mTopGridData;
     private List<String> mBottomGridList;
@@ -51,8 +47,7 @@ public class BetterDoubleGridView extends LinearLayout implements View.OnClickLi
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public BetterDoubleGridView(Context context, AttributeSet attrs, int defStyleAttr,
-                                int defStyleRes) {
+    public BetterDoubleGridView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context);
     }
@@ -78,8 +73,7 @@ public class BetterDoubleGridView extends LinearLayout implements View.OnClickLi
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this.getContext(), 4);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
+            @Override public int getSpanSize(int position) {
                 if (position == 0 || position == mTopGridData.size() + 1) {
                     return 4;
                 }
@@ -95,8 +89,7 @@ public class BetterDoubleGridView extends LinearLayout implements View.OnClickLi
     private TextView mTopSelectedTextView;
     private TextView mBottomSelectedTextView;
 
-    @Override
-    public void onClick(View v) {
+    @Override public void onClick(View v) {
 
         TextView textView = (TextView) v;
         String text = (String) textView.getTag();
@@ -128,16 +121,15 @@ public class BetterDoubleGridView extends LinearLayout implements View.OnClickLi
         return this;
     }
 
-    @OnClick(R.id.bt_confirm)
-    public void clickDone() {
+    @OnClick(R.id.bt_confirm) public void clickDone() {
 
         FilterUrl.instance().doubleGridTop = mTopSelectedTextView == null ? "" : (String) mTopSelectedTextView.getTag();
-        FilterUrl.instance().doubleGridBottom = mBottomSelectedTextView == null ? "" : (String) mBottomSelectedTextView.getTag();
+        FilterUrl.instance().doubleGridBottom =
+                mBottomSelectedTextView == null ? "" : (String) mBottomSelectedTextView.getTag();
 
         if (mOnFilterDoneListener != null) {
             mOnFilterDoneListener.onFilterDone(3, "", "");
         }
     }
-
 
 }
