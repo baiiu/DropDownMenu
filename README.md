@@ -7,13 +7,13 @@ I have written it for several times, Now the code is most clearly.
 
 [中文文档](README-cn.md)
 
-##Feature
+## Feature
 1. use Adapter to add the SubDropDownMenu. Override the `getView()` method to supply the wantted view.
 2. use Generic to make all kinds of model(pojo,javabean...) can be used.
 3. use FilterCheckedView which implements `Checkable`, so you can use selector to respond to all user action.
 4. use FilterUrl to save the current choosen data, only override `toString()` you will get the url.
 
-##ScreenShot
+## ScreenShot
 ![DropDownMenu](images/dropDownMenu.gif "Gif Example")
 
 ## Usage 
